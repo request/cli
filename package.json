@@ -1,0 +1,49 @@
+{
+  "name": "@http/cli",
+  "version": "0.0.0",
+  "description": "curl for your node",
+
+  "keywords": [
+    "http",
+    "https",
+    "curl",
+    "cli"
+  ],
+
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/node-http/cli",
+
+  "author": "Simeon Velichkov <simeonvelichkov@gmail.com> (http://simov.github.io)",
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/node-http/cli.git"
+  },
+
+  "dependencies": {
+    ""     : "0.0.0"
+  },
+
+  "devDependencies": {
+    "mocha"           : "2.2.4",
+    "should"          : "5.2.0",
+    "istanbul"        : "0.3.13",
+    "coveralls"       : "2.11.2",
+    "codecov.io"      : "0.1.5",
+    "eslint"          : "0.19.0"
+  },
+
+  "main": "index.js",
+  "bin": {
+    "request": "index.js"
+  },
+
+  "files": [],
+
+  "scripts": {
+    "test"      : "npm run lint && npm run test-ci",
+    "test-ci"   : "mocha --recursive test/",
+    "test-cov"  : "istanbul cover _mocha test/",
+    "lint"      : "eslint && echo Lint passed"
+  }
+}
