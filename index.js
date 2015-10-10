@@ -23,8 +23,11 @@ function pick (a, b) {
   else if (typeof b === 'string') {
     return b
   }
-  else {
-    return true
+  if (typeof a === 'boolean') {
+    return a
+  }
+  else if (typeof b === 'boolean') {
+    return b
   }
 }
 
