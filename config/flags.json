@@ -1,110 +1,20 @@
-[
-  {
-    "option": "help",
-    "-": "-h",
-    "--": "--help",
-    "description": ""
-  },
-
-  {
-    "option": "url",
-    "-": "-u",
-    "--": "--url",
-    "description": ""
-  },
-  {
-    "option": "method",
-    "-": "-m",
-    "--": "--method",
-    "description": ""
-  },
-  {
-    "option": "qs",
-    "-": "-q",
-    "--": "--qs",
-    "description": ""
-  },
-
-  {
-    "option": "form",
-    "-": "-f",
-    "--": "--form",
-    "description": ""
-  },
-  {
-    "option": "json",
-    "-": "-j",
-    "--": "--json",
-    "description": ""
-  },
-  {
-    "option": "multipart",
-    "-": "",
-    "--": "--multipart",
-    "description": ""
-  },
-  {
-    "option": "body",
-    "-": "-b",
-    "--": "--body",
-    "description": ""
-  },
-
-  {
-    "option": "gzip",
-    "-": "-g",
-    "--": "--gzip",
-    "description": ""
-  },
-  {
-    "option": "encoding",
-    "-": "-e",
-    "--": "--encoding",
-    "description": ""
-  },
-
-  {
-    "option": "auth",
-    "-": "-a",
-    "--": "--auth",
-    "description": ""
-  },
-  {
-    "option": "oauth",
-    "-": "-o",
-    "--": "--oauth",
-    "description": ""
-  },
-
-  {
-    "option": "callback",
-    "-": "-c",
-    "--": "--callback",
-    "description": ""
-  },
-  {
-    "option": "redirect",
-    "-": "-r",
-    "--": "--redirect",
-    "description": ""
-  },
-
-  {
-    "option": "parse",
-    "-": "-p",
-    "--": "--parse",
-    "description": ""
-  },
-  {
-    "option": "length",
-    "-": "-l",
-    "--": "--length",
-    "description": ""
-  },
-  {
-    "option": "end",
-    "-": "-e",
-    "--": "--end",
-    "description": ""
-  }
-]
+{
+  "-h, --help"      : "",
+  "- , --client"    : "@http/request || @http/client",
+  "-u, --url"       : "http://something.com",
+  "-m, --method"    : "GET",
+  "-q, --qs"        : "\"{a: 1, b: 'c'}\" || '{\"a\": 1, \"b\": \"c\"}' || a=1&b=c",
+  "-f, --form"      : "Object           || JSON                 || String",
+  "-j, --json"      : "",
+  "- , --multipart" : "",
+  "-b, --body"      : "",
+  "-g, --gzip"      : "",
+  "-e, --encoding"  : "",
+  "-a, --auth"      : "",
+  "-o, --oauth"     : "",
+  "-c, --callback"  : "",
+  "-r, --redirect"  : "",
+  "-p, --parse"     : "",
+  "-l, --length"    : "",
+  "-e, --end"       : ""
+}

@@ -1,19 +1,27 @@
 #!/usr/bin/env node
 
 var minimist = require('minimist')
-  , columnify = require('columnify')
-  , request = require('@http/client')
+  , json = require('prettyjson')
 var flags = require('./config/flags')
 
 var argv = minimist(process.argv.slice(2))
 
 
+if (argv.client) {
+  request = require(argv.client)
+}
+else {
+  request = require('@http/client')
+}
+
 if (argv.h || argv.help) {
-  console.log(columnify(flags, {
-    minWidth: 20
+  console.log(json.render(flags, {
+    keysColor: 'blue',
+    stringColor: 'grey'
   }))
   process.exit()
 }
+console.log()
 
 
 function pick (a, b) {
@@ -41,30 +49,27 @@ function parse (str) {
 }
 
 
-var options = {}
+var options = {
+  // for now put a callback function by default
+  // so that the response body log events are handled
+  callback: function () {}
+}
 
-flags.forEach(function (flag) {
-  var a = flag['-'].replace('-', '')
-    , b = flag['--'].replace('--', '')
+for (var flag in flags) {
+  var shorthand = flag.replace(/^-(.*),.*/, '$1')
+    , option = flag.replace(/.*--(.*)/, '$1')
 
-  if (argv[a] || argv[b]) {
-    var value = pick(argv[a], argv[b])
-    value = parse(value)
+  if (!argv[shorthand] && !argv[option]) continue
 
-    if (flag.option === 'method') {
-      options[flag.option] = value.toUpperCase()
-    }
-    else if (flag.option === 'body') {
-      // TODO: implement something more sophisticated
-      options[flag.option] = value
-    }
-    else if (flag.option === 'callback') {
-      options[flag.option] = function () {}
-    }
-    else {
-      options[flag.option] = value
-    }
+  var value = pick(argv[shorthand], argv[option])
+  value = parse(value)
+
+  if (option === 'method') {
+    options[option] = value.toUpperCase()
   }
-})
+  else {
+    options[option] = value
+  }
+}
 
 request(options)
