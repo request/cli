@@ -11,7 +11,7 @@ if (argv.client) {
   request = require(argv.client)
 }
 else {
-  request = require('@http/client')
+  request = require('@request/client')
 }
 
 if (argv.h || argv.help) {

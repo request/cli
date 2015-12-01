@@ -1,21 +1,33 @@
 
-# @http/cli
+# @request/cli
 
-```bash
-DEBUG=req,res,body request -u https://npmjs.com/search -q "{q: 'http'}" -rc
-```
-
-```bash
-DEBUG=req,res,body request --client @http/request -u https://npmjs.com/search -q "{q: 'http'}" -rc
-```
+> See [@request/core][request-core] for more details.
 
 
 ```bash
-request -u http://site.com -q "{a: 1, b: 'c'}"
+$ npm install -g @request/cli
+$ request --help
 ```
+
+
+## Ways to pass a querystring
+
 ```bash
-request -u http://site.com -q '{"a": 1, "b": "c"}'
+# Object
+$ request -u http://site.com -q "{a: 1, b: 'c'}"
+# JSON
+$ request -u http://site.com -q '{"a": 1, "b": "c"}'
+# Querystring
+$ request -u http://site.com -q 'a=1&b=c'
 ```
+
+
+## Debug Log
+
 ```bash
-request -u http://site.com -q 'a=1&b=c'
+$ npm install @request/log
+$ DEBUG=req,res,body request -u https://npmjs.com/search -q "{q: 'http'}" -rc
 ```
+
+
+  [request-core]: https://github.com/request/core

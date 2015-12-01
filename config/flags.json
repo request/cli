@@ -1,6 +1,6 @@
 {
   "-h, --help"      : "",
-  "- , --client"    : "@http/request || @http/client",
+  "- , --client"    : "@request/legacy || @request/client",
   "-u, --url"       : "http://something.com",
   "-m, --method"    : "GET",
   "-q, --qs"        : "\"{a: 1, b: 'c'}\" || '{\"a\": 1, \"b\": \"c\"}' || a=1&b=c",
